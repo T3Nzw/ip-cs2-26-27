@@ -118,7 +118,7 @@ int main() {
 
         if (isEven) {
             evenSum += currDigit;
-            evenCount ++;
+            evenCount++;
         } else {
             oddSum += currDigit;
             oddCount++;

@@ -180,7 +180,7 @@ do {
 
 8. Видимост??
 ```cpp
-for (unsigned i = 0; i < 5; i++)
+for (unsigned i = 0; i < 5; ++i)
     std::cout << i << std::endl;
 
 std::cout << i << std::endl;
