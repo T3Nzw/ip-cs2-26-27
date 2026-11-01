@@ -107,28 +107,28 @@ void swap(unsigned& a, unsigned& b) {
 
 ### 2. Разпределяне на задачите
 ```cpp
-double division(double a, double b) {
-    if (b == 0) 
-        return a;
-
-    return a / b; 
-}
-
-void printDivision(double a, double b) {
-    double result = division(a, b);
-    if (result == a && b != 1) {
-        std::cout << "Invalid operation!" << std::endl;
-        return;
+int findNumPosition(unsigned a, unsigned n) {
+    unsigned b;
+    for (unsigned idx = 0; idx < n; idx++) {
+        std::cin >> b;
+        if (a == b) {
+            return idx;
+        }
     }
 
-    std::cout << result << std::endl;
+    return -1;
+}
+
+bool isNumInLine(unsigned a, unsigned n) {
+    int result = findNumPosition(a, n);
+    
+    return result >= 0;
 }
 
 int main(){
-    for (unsigned short num = 0; num <= 2; ++num) {
-        printDivision(2, num);
-    }
-    
+    // Отпечатваме "Да", ако в първите 5 въведени числа има "10"
+    std::cout << (isNumInLine(10, 5) ? "Да" : "Не") << std::endl;
+     
     return 0;
 }
 ```
