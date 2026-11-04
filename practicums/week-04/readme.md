@@ -109,7 +109,7 @@ void swap(unsigned& a, unsigned& b) {
 ```cpp
 int findNumPosition(unsigned a, unsigned n) {
     unsigned b;
-    for (unsigned idx = 0; idx < n; idx++) {
+    for (unsigned idx = 0; idx < n; ++idx) {
         std::cin >> b;
         if (a == b) {
             return idx;
