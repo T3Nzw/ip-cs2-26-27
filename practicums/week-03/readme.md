@@ -132,45 +132,45 @@ const int& ref = variableche;
 
 # Задачи
 ## Задача 0 - Храна за размисъл
-1. Ходим назад...
+### 1. Ходим назад...
 ```cpp
 for (unsigned i = 10; i >= 0; i -= 3)
     std::cout << i << std::endl;
 ```
 
-2. Ще прескочим ли шахтата?
+### 2. Ще прескочим ли шахтата?
 ```cpp
 for (int i = 10; i != 0; i -= 3)
     std::cout << i << std::endl;
 ```
 
-3. Старт?
+### 3. Старт?
 ```cpp
 unsigned i = 1;
 for (; i <= 5; ++i)
     std::cout << i << std::endl;
 ```
 
-4. Промяна?
+### 4. Промяна?
 ```cpp
 unsigned i = 1;
 for (; i <= 5;) 
     std::cout << i++ << std::endl;
 ```
 
-5. азбуката
+### 5. азбуката
 ```cpp
 for (char lett = 'a'; lett <= 'z'; ++lett) 
     std::cout << lett << ' ';
 ```
 
-6. Две управляващи променливи?
+### 6. Две управляващи променливи?
 ```cpp
 for (unsigned i = 1, j = 1; i <= 5 && j <= 5; i = j += 1) 
     std::cout << i << ' ' << j << std::endl;
 ```
 
-7. Видимост?
+### 7. Видимост?
 ```cpp
 do {
     unsigned i = 1;
@@ -178,15 +178,15 @@ do {
 } while (i <= 10);
 ```
 
-8. Видимост??
+### 8. Видимост??
 ```cpp
-for (unsigned i = 0; i < 5; i++)
+for (unsigned i = 0; i < 5; ++i)
     std::cout << i << std::endl;
 
 std::cout << i << std::endl;
 ```
 
-9. Указателче
+### 9. Указателче
 ```cpp
 unsigned i = 1;
 unsigned* p = &i;
@@ -195,7 +195,7 @@ while(i <= 5)
     std::cout << (*p)++ << std::endl;
 ```
 
-10. `const` и `*`
+### 10. `const` и `*`
 ```cpp
 unsigned a = 10;
 unsigned b = 5;
