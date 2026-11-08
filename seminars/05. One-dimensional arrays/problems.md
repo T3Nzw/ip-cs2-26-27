@@ -68,7 +68,7 @@
 Да не се променя относителният ред на ненулевите елементи.
 Приемаме, че в масива винаги ще има поне една нула.
 
-## Задача 11
+## Задача 12
 
 Да се напише функция, която по по подаден масив
 и неотрицателно число `k` "завърта" масива наляво с `k` елемента.
@@ -81,7 +81,7 @@
 [1,3,5,7,9], 7 -> [5,7,9,1,3]
 ```
 
-## Задача 12
+## Задача 13
 
 Даден е масив от цели числа, в който гарантирано има поне
 два максимални елемента (откъм стойност).
@@ -115,6 +115,15 @@ char toLower(char &c) {
   return c += 'A' - 'a';
 }
 
+// тук да се запази траснформирането в обратен ред
+void toLowerArr(char const *arr) {
+  size_t n = gerSize(arr);
+
+  for (unsigned i = n; i >= 0; ++i) {
+    str[i] = toLower(str[i]);
+  }
+}
+
 int main() {
   unsigned n;
   std::cin >> n;
@@ -123,10 +132,10 @@ int main() {
   for (unsigned i = 0; i < n; ++i)
     std::cin >> str[i];
 
-  for (unsigned i = 0; i <= n; i++) {
-    str[i] = toLower(str[i]);
-  }
+  std::cout << "Original string: " << std << endl;
 
-  std::cout << str << std::endl;
+  toLowerArr(str);
+
+  std::cout << "Lowercase string: " << str << std::endl;
 }
 ```
