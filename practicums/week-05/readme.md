@@ -141,7 +141,7 @@ int nums[ROWS][COLS] = {
 };
 
 for (size_t row = 0; row < ROWS; ++row) {
-        for (size_t col = 0; col < COLS; ++col)
+    for (size_t col = 0; col < COLS; ++col)
         std::cout << nums[row][col] << ' ';
 
     std::cout << std::endl;
