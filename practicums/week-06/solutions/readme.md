@@ -68,7 +68,7 @@ unsigned charToDigit(char number) {
     return number - '0'; // Assuming it's valid
 }
 
-unsigned charRowToNum(char row[], size_t size) {
+unsigned charRowToNum(const char row[], size_t size) {
     unsigned result = 0;
     for (size_t idx = 0; idx < size; ++idx)
         result = result * 10 + charToDigit(row[idx]);
@@ -76,7 +76,7 @@ unsigned charRowToNum(char row[], size_t size) {
     return result;
 }
 
-size_t getBiggestRow(char matrix[ROWS][COLS], size_t rows, size_t cols) {
+size_t getBiggestRow(const char matrix[ROWS][COLS], size_t rows, size_t cols) {
     size_t maxRow = 0;
 
     for (size_t row = 1; row < rows; ++row)
@@ -131,7 +131,7 @@ void inputResults(unsigned results[], size_t size) {
         std::cin >> results[idx];
 }
 
-void outputResults(unsigned results[], size_t size) {
+void outputResults(const unsigned results[], size_t size) {
     for (size_t idx = 0; idx < size; ++idx)
         std::cout << idx + 1 << ". " <<  results[idx] << std::endl;
 }

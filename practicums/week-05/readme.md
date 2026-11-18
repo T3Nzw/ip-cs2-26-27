@@ -62,7 +62,7 @@ void bubbleSort(int nums[], size_t size) {
 
 - Търсене
 ```cpp
-int getIdx(int element, int nums[], size_t size) {
+int getIdx(int element, const int nums[], size_t size) {
     for (size_t idx = 0; idx < size; ++idx)
         if (nums[idx] == element)
             return idx;
@@ -170,7 +170,7 @@ for (size_t col = 0; col < COLS; ++col) {
 - Търсене
 ```cpp
 const size_t N = 5;
-void findElement(int element, int matrix[][N], int& row, int& col) {
+void findElement(int element, const int matrix[][N], int& row, int& col) {
     for (size_t idx = 0; idx < N; ++idx)
         for (size_t jdx = 0; jdx < N; ++jdx)
             if (matrix[idx][jdx] == element) {

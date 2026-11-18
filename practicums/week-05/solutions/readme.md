@@ -8,7 +8,7 @@ void swap(int& lhsElement, int& rhsElement) {
     rhsElement = temp;
 }
 
-void printArray(int arr[], size_t size) {
+void printArray(const int arr[], size_t size) {
     for (size_t idx = 0; idx < size; ++idx)
         std::cout << arr[idx] << ' ';
     
@@ -16,7 +16,7 @@ void printArray(int arr[], size_t size) {
 }
 
 const size_t N = 5; // За матрица ни трябва да знаем размера на колоните
-void printMatrix(int matrix[][N]) {
+void printMatrix(const int matrix[][N]) {
     for (size_t idx = 0; idx < N; ++idx)
         printArray(matrix[idx], N);
 }
@@ -53,7 +53,7 @@ int main(){
 
 ## Задача 2
 ```cpp
-int max(int arr[], size_t size) {
+int max(const int arr[], size_t size) {
     int maxElement = arr[0];
 
     for (size_t idx = 1; idx < size; ++idx)
@@ -63,7 +63,7 @@ int max(int arr[], size_t size) {
     return maxElement;
 }
 
-size_t min(int arr[], size_t size) {
+size_t min(const int arr[], size_t size) {
     size_t minIdx = 0;
 
     for (size_t idx = 1; idx < size; ++idx)
@@ -76,7 +76,7 @@ size_t min(int arr[], size_t size) {
 
 ## Задача 3
 ```cpp
-void reverse(int arr[], size_t size) {
+void reverse(const int arr[], size_t size) {
     for (size_t idx = 0; idx < size / 2; ++idx)
         swap(arr[idx], arr[size - 1 - idx]);
 }
@@ -147,7 +147,7 @@ void printThreeLargest(int arr[], size_t size) {
 const size_t N = 5;
 void transpose(int matrix[][N]) {
     for (size_t idx = 0; idx < N; ++idx)
-        for (size_t jdx = idx; jdx < N; ++jdx)
+        for (size_t jdx = idx + 1; jdx < N; ++jdx)
             swap(matrix[idx][jdx], matrix[jdx][idx]);
 }
 ```
@@ -156,7 +156,7 @@ void transpose(int matrix[][N]) {
 ```cpp
 const size_t N = 5;
 const size_t M = 6;
-void printColsReverse(int matrix[N][M]) {
+void printColsReverse(const int matrix[N][M]) {
     for (size_t idx = N; idx > 0; --idx) {
         for (size_t jdx = 0; jdx < M; ++jdx)
             std::cout << matrix[idx - 1][jdx] << ' ';
@@ -170,7 +170,7 @@ void printColsReverse(int matrix[N][M]) {
 ```cpp
 const size_t N = 5;
 const size_t M = 6;
-void printSnake(int matrix[N][M], char symbol) {
+void printSnake(const int matrix[N][M], char symbol) {
     if (symbol == 'l' || symbol == 'r') {
         for (size_t row = 0; row < N; ++row) {
             if (symbol == 'l')
@@ -243,7 +243,7 @@ int mode(int arr[], size_t size) {
 ## Задача 11
 ```cpp
 const size_t N = 5;
-void sumMatrix(int lhs[][N], int rhs[][N], int result[][N]) {
+void sumMatrix(const int lhs[][N], const int rhs[][N], int result[][N]) {
     for (size_t idx = 0; idx < N; ++idx)
         for (size_t jdx = 0; jdx < N; ++jdx)
             result[idx][jdx] = lhs[idx][jdx] + rhs[idx][jdx];
@@ -253,7 +253,7 @@ void sumMatrix(int lhs[][N], int rhs[][N], int result[][N]) {
 ## Задача 12
 ```cpp
 const size_t N = 5;
-void mulMatrix(int lhs[][N], int rhs[][N], int result[][N]) {
+void mulMatrix(const int lhs[][N], const int rhs[][N], int result[][N]) {
     int currSum = 0;
     for (size_t idx = 0; idx < N; ++idx)
         for (size_t jdx = 0; jdx < N; ++jdx) {
@@ -289,7 +289,7 @@ void rotate(int arr[], size_t size, int rotations) {
 ## Задача 14
 ```cpp
 const size_t N = 5;
-int sumCol(int matrix[][N], size_t col) {
+int sumCol(const int matrix[][N], size_t col) {
     int sum = 0;
     for (size_t idx = 0; idx < N; ++idx)
         sum += matrix[idx][col];
@@ -325,7 +325,7 @@ void swap(int& lhsElement, int& rhsElement) {
     rhsElement = temp;
 }
 
-void mergeSortedArrays(int lhsArr[], int rhsArr[], int resultArr[], size_t lhsSize, size_t rhsSize) {
+void mergeSortedArrays(const int lhsArr[], const int rhsArr[], int resultArr[], size_t lhsSize, size_t rhsSize) {
     size_t lhsIdx = 0, rhsIdx = 0, resultIdx = 0;
 
     while (lhsIdx < lhsSize && rhsIdx < rhsSize ) {
