@@ -368,7 +368,7 @@ Note: Може да си направите отделна функция, ко�
 9
 1 2 3 0 4 5 6 9 8
 ```
-- Изход #3: `0 3`
+- Изход #3: `3 5`
 
 ## Задача 5
 Имате дадена програма. Попълнете я, като напишете функция, която получава масив от символи и размерът му. Функцията получава и още един аргумент: `unsigned values[127]`. Функцията трябва да запише броя на всеки уникален символ на масива във `values`. Програмата трябва да отпечатва резултататът по указания начин:
@@ -481,4 +481,115 @@ int main() {
 3. Всяка жива клетка с **повече от трима** живи съседа умира, защото и е *пренаселено*!
 4. Всяка мъртва клетка с **точно три** живи съседа оживява, поради *размножаване*!
 
-Вашата функция трябва да изпълнява подадения брой *поколения* без помощни масиви/матрици (inplace).
+Вашата функция трябва да изпълнява подадения брой *поколения* без помощнa матрицa (да става inplace).
+
+Примери:
+```cpp
+void printBoard(char board[N][N]) {
+    for (size_t row = 0; row < N; ++row) {
+            for (size_t col = 0; col < N; ++col)
+                std::cout << board[row][col] << ' ';
+   
+        std::cout << std::endl;
+    }
+}
+```
+- Програмен фрагмент #1:
+```cpp
+char board[N][N] = {
+    {'d','d','d','d','d','d','d','d','d','d'},
+    {'d','d','d','d','d','d','d','d','d','d'},
+    {'d','d','d','d','d','d','d','d','d','d'},
+    {'d','d','d','d','d','d','d','d','d','d'},
+    {'d','d','d','d','l','l','d','d','d','d'},
+    {'d','d','d','d','l','l','d','d','d','d'},
+    {'d','d','d','d','d','d','d','d','d','d'},
+    {'d','d','d','d','d','d','d','d','d','d'},
+    {'d','d','d','d','d','d','d','d','d','d'},
+    {'d','d','d','d','d','d','d','d','d','d'}
+};
+
+doGenerations(board, 5);
+
+printBoard(board);
+```
+
+- Ихзод #1:
+```
+d d d d d d d d d d 
+d d d d d d d d d d 
+d d d d d d d d d d 
+d d d d d d d d d d 
+d d d d l l d d d d 
+d d d d l l d d d d 
+d d d d d d d d d d 
+d d d d d d d d d d 
+d d d d d d d d d d 
+d d d d d d d d d d 
+```
+
+- Програмен фрагмент #2:
+```cpp
+char board[N][N] = {
+    {'d','d','d','d','d','d','d','d','d','d'},
+    {'d','d','d','d','d','d','d','d','d','d'},
+    {'d','d','d','d','d','d','d','d','d','d'},
+    {'d','d','d','d','d','d','d','d','d','d'},
+    {'d','d','d','l','l','l','d','d','d','d'},
+    {'d','d','d','d','d','d','d','d','d','d'},
+    {'d','d','d','d','d','d','d','d','d','d'},
+    {'d','d','d','d','d','d','d','d','d','d'},
+    {'d','d','d','d','d','d','d','d','d','d'},
+    {'d','d','d','d','d','d','d','d','d','d'}
+};
+
+doGenerations(board, 2);
+
+printBoard(board);
+```
+- Ихзод #2:
+```
+d d d d d d d d d d 
+d d d d d d d d d d 
+d d d d d d d d d d 
+d d d d d d d d d d 
+d d d l l l d d d d 
+d d d d d d d d d d 
+d d d d d d d d d d 
+d d d d d d d d d d 
+d d d d d d d d d d 
+d d d d d d d d d d 
+```
+
+- Програмен фрагмент #3:
+```cpp
+char board[N][N] = {
+    {'d','d','d','d','d','d','d','d','d','d'},
+    {'d','d','l','d','d','d','d','d','d','d'},
+    {'d','d','d','l','d','d','d','d','d','d'},
+    {'d','l','l','l','d','d','d','d','d','d'},
+    {'d','d','d','d','d','d','d','d','d','d'},
+    {'d','d','d','d','d','d','d','d','d','d'},
+    {'d','d','d','d','d','d','d','d','d','d'},
+    {'d','d','d','d','d','d','d','d','d','d'},
+    {'d','d','d','d','d','d','d','d','d','d'},
+    {'d','d','d','d','d','d','d','d','d','d'}
+};
+
+doGenerations(board, 3);
+
+printBoard(board);
+```
+- Ихзод #3:
+```
+d d d d d d d d d d 
+d d d d d d d d d d 
+d d l d d d d d d d 
+d d d l l d d d d d 
+d d l l d d d d d d 
+d d d d d d d d d d 
+d d d d d d d d d d 
+d d d d d d d d d d 
+d d d d d d d d d d 
+d d d d d d d d d d
+```
